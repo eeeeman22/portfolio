@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
 import { video_data } from '../data/video_data.js'
+import { application_data } from '../data/application_data.js'
+import Applications from './applications.js'
+// import shoplyIMG from '../images/shop.ly.jpg'
+// import minesweepherGIF from '../images/minesweepher.gif'
+// import narwhalIMG from '../images/narwhal_thumb.jpg'
+// import autognomeIMG from '../images/auto-gnome-screenshot.png'
 
 class Main extends React.Component {
   render() {
@@ -31,9 +34,7 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">Apps</h2>
-          <span className="image main">{/* <img src={pic01} alt="" /> */}</span>
-
-          {/* insert stuff here */}
+          <Applications />
 
           {close}
         </article>
@@ -94,9 +95,6 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">About</h2>
-          <span className="image main">
-            <img src={pic03} alt="" />
-          </span>
           <p>
             Ian is a software Engineer, Saxophonist, and Educator from New York.
             He is passionate about building fullstack applications with
