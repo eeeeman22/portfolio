@@ -3,6 +3,7 @@ import React from 'react'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+import { video_data } from '../data/video_data.js'
 
 class Main extends React.Component {
   render() {
@@ -21,43 +22,70 @@ class Main extends React.Component {
         id="main"
         style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
       >
+        {/* WORK */}
         <article
-          id="intro"
-          className={`${this.props.article === 'intro' ? 'active' : ''} ${
+          id="apps"
+          className={`${this.props.article === 'apps' ? 'active' : ''} ${
             this.props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">About</h2>
-          {/* <span className="image main"> */}
-          {/* <img src={pic01} alt="" /> */}
-          {/* </span> */}
-          <p>
-            Ian is a Web Developer, Saxohponist, and educator from New York. He
-            is passionate about building fullstack applications with JavaScript,
-            React+Redux, Node.js, and Docker. Ian is a graduate of the Advanced
-            Software Engineering Immersive at Hack Reactor NYC. He holds degrees
-            in Music Education and Saxophone from The Hartt School, and a
-            masters degree in Saxophone from Pennsylvania State University.
-          </p>
+          <h2 className="major">Apps</h2>
+          <span className="image main">{/* <img src={pic01} alt="" /> */}</span>
+
+          {/* insert stuff here */}
+
           {close}
         </article>
 
+        {/* RECORDINGS */}
         <article
-          id="work"
-          className={`${this.props.article === 'work' ? 'active' : ''} ${
+          id="recordings"
+          className={`${this.props.article === 'recordings' ? 'active' : ''} ${
             this.props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Work</h2>
-          <span className="image main">
-            <img src={pic02} alt="" />
-          </span>
-
+          <h2 className="major">Recordings</h2>
+          {video_data.map(video => {
+            return (
+              <div style={{ textAlign: 'left' }} key={video.id}>
+                <div style={{ height: '40px' }}></div>
+                {video.composer}
+                <div
+                  style={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    paddingTop: '56.25%',
+                  }}
+                >
+                  <iframe
+                    title={video.composer}
+                    style={{
+                      position: 'absolute',
+                      top: '0',
+                      left: '0',
+                      width: '100%',
+                      height: '100%',
+                      border: '0',
+                    }}
+                    src={video.url}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                {video.performers}
+                {video.info
+                  ? video.info.split('\n').map(line => <div>{line}</div>)
+                  : ''}
+              </div>
+            )
+          })}
           {close}
         </article>
 
+        {/* ABOUT */}
         <article
           id="about"
           className={`${this.props.article === 'about' ? 'active' : ''} ${
@@ -70,17 +98,18 @@ class Main extends React.Component {
             <img src={pic03} alt="" />
           </span>
           <p>
-            Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent
-            eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
-            erat volutpat. Praesent urna nisi, fringila lorem et vehicula
-            lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.
-            Aliquam libero et malesuada fames ac ante ipsum primis in faucibus.
-            Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit
-            amet.
+            Ian is a software Engineer, Saxophonist, and Educator from New York.
+            He is passionate about building fullstack applications with
+            JavaScript, React+Redux, Node.js, and Docker. Ian is a graduate of
+            the Advanced Software Engineering Immersive at Hack Reactor NYC. He
+            holds degrees in Music Education and Saxophone from The Hartt
+            School, and a masters degree in Saxophone from Pennsylvania State
+            University.
           </p>
           {close}
         </article>
 
+        {/* CONTACT */}
         <article
           id="contact"
           className={`${this.props.article === 'contact' ? 'active' : ''} ${
@@ -89,52 +118,30 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">Contact</h2>
-          <form method="post" action="#">
-            <div className="field half first">
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
-            </div>
-            <div className="field half">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
-            </div>
-            <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
-            </div>
-            <ul className="actions">
-              <li>
-                <input type="submit" value="Send Message" className="special" />
-              </li>
-              <li>
-                <input type="reset" value="Reset" />
-              </li>
-            </ul>
-          </form>
           <ul className="icons">
             <li>
               <a
-                href="https://twitter.com/HuntaroSan"
-                className="icon fa-twitter"
+                href="mailto:i.robinson22@icloud.com"
+                className="icon fa-envelope"
               >
+                <span className="label">Email</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/ianrsax" className="icon fa-twitter">
                 <span className="label">Twitter</span>
               </a>
             </li>
             <li>
-              <a href="https://codebushi.com" className="icon fa-facebook">
-                <span className="label">Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://codebushi.com" className="icon fa-instagram">
-                <span className="label">Instagram</span>
-              </a>
-            </li>
-            <li>
               <a
-                href="https://github.com/codebushi/gatsby-starter-dimension"
-                className="icon fa-github"
+                href="https://linkedin.com/in/irobinson22"
+                className="icon fa-linkedin"
               >
+                <span className="label">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/eeeeman22" className="icon fa-github">
                 <span className="label">GitHub</span>
               </a>
             </li>

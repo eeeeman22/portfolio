@@ -6,7 +6,7 @@ const Header = props => (
     <div className="content">
       <div className="inner">
         <h1>IAN ROBINSON</h1>
-        <p>Developer | Saxophonist | Educator</p>
+        <p>Software Engineer | Saxophonist | Educator</p>
       </div>
     </div>
     <nav>
@@ -14,19 +14,19 @@ const Header = props => (
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('intro')
+              props.onOpenArticle('apps')
             }}
           >
-            Intro
+            Apps
           </button>
         </li>
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('work')
+              props.onOpenArticle('recordings')
             }}
           >
-            Work
+            Recordings
           </button>
         </li>
         <li>
